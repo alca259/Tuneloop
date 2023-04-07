@@ -1,4 +1,4 @@
-﻿namespace Tuneloop;
+﻿namespace Tuneloop.Pages;
 
 public partial class MainPage : ContentPage
 {
