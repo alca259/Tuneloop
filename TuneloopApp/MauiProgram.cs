@@ -1,4 +1,8 @@
-﻿namespace Tuneloop;
+﻿using CommunityToolkit.Maui;
+using Tuneloop.Data.Infrastructure;
+using Tuneloop.Data.Infrastructure.Implementations;
+
+namespace Tuneloop;
 
 public static class MauiProgram
 {
@@ -7,12 +11,15 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+		builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
+
+        return builder.Build();
 	}
 }
