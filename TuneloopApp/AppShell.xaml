@@ -58,5 +58,5 @@
                 Route="Settings" />
         </Tab>
     </TabBar>
-    
+
 </Shell>
